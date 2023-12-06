@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles.css';
+import './sim_styles.css';
+import './nav_styles.css';
+import './home_styles.css';
 import App from './App';
 // import express from "express";
 

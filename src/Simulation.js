@@ -75,8 +75,6 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
             break
         }
     }
-    console.log(home_team)
-    console.log(away_team)
 
     let home_cpct = (parseFloat(home_team[0].Cmp) + parseFloat(away_team[2].Cmp))/2
     let away_cpct = (parseFloat(away_team[0].Cmp) + parseFloat(home_team[2].Cmp))/2
@@ -120,13 +118,13 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
             }
 
             else if(num2 > 1-(sack/100)){
-                console.log("Sacked")
+                //console.log("Sacked")
                 yards = -5
                 time_left -= 40
             }
             else if(num2 > 1-(sack/100)-(inter/100)){
                 hasball = false
-                console.log("Interception")
+                //console.log("Interception")
             }
             else{
                 let val = Math.floor((Math.random()*30))+Math.floor(ypp)
@@ -142,12 +140,12 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
             else{
                 down2 += 1
             }
-            console.log("Pass Play for " + yards + " yards")
+            //console.log("Pass Play for " + yards + " yards")
         }
         else{
             down2 += 1
             time_left -= 10
-            console.log("Pass incomplete")
+            //console.log("Pass incomplete")
         }
 
         return {hasball, yard, down2, togo}
@@ -158,7 +156,7 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
         let hasball = true
         let yards = 0
         if(num1 < fum){
-            console.log("Fumble")
+            //console.log("Fumble")
             hasball = false
         }
         else if(num1 < 0.1){
@@ -185,7 +183,7 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
         else{
             down2 += 1
         }
-        console.log("Run Play for " + yards + " yards")
+        //console.log("Run Play for " + yards + " yards")
         return {hasball, yard, down2, togo}
     }
 
@@ -201,8 +199,8 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
     down = 1
     yardsleft = 10
     while(true){
-        console.log("Down: " + down + "\nTo Go: " + yardsleft)
-        console.log("On the " + yardline + " yardline")
+        // console.log("Down: " + down + "\nTo Go: " + yardsleft)
+        // console.log("On the " + yardline + " yardline")
         if(home_ball){
             active_team = home_team
             active_vals = [home_cpct,home_ypp,home_ypr,home_sack,home_int,home_fum]
@@ -227,9 +225,9 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
             yardline = 25
             down = 1
             yardsleft = 10
-            console.log("Halftime")
-            console.log(away_score)
-            console.log(home_score)
+            // console.log("Halftime")
+            // console.log(away_score)
+            // console.log(home_score)
             continue
         }
         if(down === 1 && (100-yardline < yardsleft)){
@@ -251,9 +249,9 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
             secondHalf = true
             down = 1
             yardsleft = 10
-            console.log("Field Goal")
-            console.log(away_score)
-            console.log(home_score)
+            // console.log("Field Goal")
+            // console.log(away_score)
+            // console.log(home_score)
             continue
         }
         else if(down === 4 && yardline >= 60){
@@ -269,9 +267,9 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
             time_left -= 5
             down = 1
             yardsleft = 10
-            console.log("Field Goal")
-            console.log(away_score)
-            console.log(home_score)
+            // console.log("Field Goal")
+            // console.log(away_score)
+            // console.log(home_score)
             continue
         }
 
@@ -288,7 +286,7 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
             else{
                 home_ball = true
             }
-            console.log("Punted")
+            //console.log("Punted")
             down = 1
             yardsleft = 10
             continue
@@ -391,12 +389,12 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
                     home_score += 2
                     home_ball = true
                 }
-                console.log("Safety")
+                //console.log("Safety")
                 yardline = 35
                 down = 1
                 yardsleft = 10
-                console.log(away_score)
-                console.log(home_score)
+                // console.log(away_score)
+                // console.log(home_score)
                 continue
             }
             else if(yardline >= 100){
@@ -404,7 +402,7 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
                     home_score += 6
                     if(Math.random() <= 0.97){
                         home_score += 1
-                        console.log("PAT")
+                        // console.log("PAT")
                     }
                     home_ball = false
                 }
@@ -412,13 +410,13 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
                     away_score += 6
                     if(Math.random() <= 0.97){
                         away_score += 1
-                        console.log("PAT")
+                        // console.log("PAT")
                     }
                     home_ball = true
                 }
-                console.log("Touchdown")
-                console.log(away_score)
-                console.log(home_score)
+                // console.log("Touchdown")
+                // console.log(away_score)
+                // console.log(home_score)
                 yardline = 25
                 down = 1
                 yardsleft = 10
@@ -427,18 +425,18 @@ function play_game(QBvalues, RBvalues, Pdefvalues, Rdefvalues, Offvals, home, aw
 
         }
     }
-    console.log(away_score)
-    console.log(home_score)
+    // console.log(away_score)
+    // console.log(home_score)
     if(away_score === home_score){
-        console.log("Overtime")
+        // console.log("Overtime")
         if(Math.random() < 0.5){
             home_score += 3
         }
         else{
             away_score += 3
         }
-        console.log(away_score)
-        console.log(home_score)
+        // console.log(away_score)
+        // console.log(home_score)
     }
     return [away_score,home_score]
 }

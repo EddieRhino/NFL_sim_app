@@ -1,0 +1,15 @@
+body{
+    text-align: center;
+}
+
+.matchup{
+    font-size: 2rem;
+    word-spacing: 5px;
+}
+
+h3{
+    font-size: 1rem;
+    height: 20px;
+    margin-top: -20px;
+}
+
